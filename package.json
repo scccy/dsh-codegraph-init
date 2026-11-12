@@ -1,6 +1,6 @@
 {
   "name": "dsh-codegraph-init",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Add codegraph install / uninstall actions to the sidebar workspace context menu, streaming the npm-based CLI install and the DSH MCP wiring into one dialog.",
   "license": "MIT",
   "author": "scccy",

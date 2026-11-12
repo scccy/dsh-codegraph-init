@@ -24,7 +24,20 @@
 
 两个入口共用同一个对话框；对话框第一次打开时会读一次宿主状态，把 DSH 目录、CLI 版本、当前是否已接线一并列出来，再决定按钮文案。
 
+## 装上插件就已经接好线
+
+装插件这一步本身就是安装：插件首次激活时会自己写接线，不用非得点菜单。
+
+1. 读 `$DSH_HOME` 与所有 profile 的 `cordis.patch.yml`，只要已经存在 `codegraph` 的 MCP 行就**什么都不写**——那条行可能是 CLI 或你自己写的，卸插件时也不会去删别人的东西。
+2. `command -v codegraph` 找不到 CLI 就跳过：接线的 `command:` 会指向空，装 CLI 是对话框的活。
+3. 都没有才动手：`cordis.patch.yml` 写 MCP 行（`command` 用 CLI 绝对路径），`AGENTS.md` 追加 `<!-- CODEGRAPH_START -->` 块。
+4. 卸载/禁用插件时只撤掉**它自己写的那两处**：patch 文件回到 `[]`，`AGENTS.md` 若被清空则整个删除。
+
+关掉这个行为：`DSH_CODEGRAPH_AUTO_WIRE=0`，此后只有侧栏对话框会写接线。
+
 ## 安装时发生了什么
+
+从侧栏菜单点「安装 codegraph」走的是完整流程（装 CLI、修复接线、校验）：
 
 1. **检查 CLI**：`command -v codegraph`，找不到就 `npm install -g @colbymchenry/codegraph@latest`。
 2. **判断 target**：`codegraph install --print-config dsh` 能通过就走 CLI，否则插件自己写。
