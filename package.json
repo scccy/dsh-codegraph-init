@@ -1,0 +1,61 @@
+{
+  "name": "dsh-codegraph-init",
+  "version": "0.1.0",
+  "description": "Add codegraph install / uninstall actions to the sidebar workspace context menu, streaming the npm-based CLI install and the DSH MCP wiring into one dialog.",
+  "license": "MIT",
+  "author": "scccy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scccy/dsh-codegraph-init.git"
+  },
+  "homepage": "https://github.com/scccy/dsh-codegraph-init#readme",
+  "bugs": {
+    "url": "https://github.com/scccy/dsh-codegraph-init/issues"
+  },
+  "type": "module",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "plugin",
+    "codegraph",
+    "mcp"
+  ],
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./icon": "./icon.svg",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-context-menu",
+        "@deepseek-ai/dsh-client-ui-workspace"
+      ]
+    }
+  },
+  "files": [
+    "CHANGELOG.md",
+    "README.md",
+    "cordis.patch.yml",
+    "icon.svg",
+    "lib/index.js",
+    "lib/client.js",
+    "locale/*.json"
+  ]
+}

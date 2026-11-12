@@ -1,0 +1,3 @@
+- insert:
+    - id: codegraph-init
+      name: 'dsh-codegraph-init'

@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "codegraph 接线",
+    "description": "在工作区右键菜单里提供 codegraph 的安装与卸载：安装 npm 版 CLI，把一个 codegraph MCP 服务接到 DSH，全过程在对话框里实时输出。"
+  }
+}

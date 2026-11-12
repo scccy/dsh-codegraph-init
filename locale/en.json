@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "codegraph wiring",
+    "description": "Adds codegraph install / uninstall to the workspace context menu: install the npm CLI, wire one codegraph MCP server into DSH, and stream every step inside a dialog."
+  }
+}
